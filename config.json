@@ -1,0 +1,13 @@
+{
+    "token": "<REPLACE WITH OFFICIAL TOKEN>",
+    "prefix": "!",
+    "admin_roles": [
+                    "Host",
+                    "Community Leader",
+                    "Community Moderator"
+                   ],
+    "mute_role": "Punished",
+	"moderator_channel": "610016054772760576",
+	"gulag_channel": "570621974041329664",
+	"blacklist_file": "blacklist.txt"
+}
