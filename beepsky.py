@@ -155,11 +155,12 @@ class BlacklistWatcher(commands.Cog):
 	# Reads ALL messages, used for detecting words in the blacklist
 	@commands.Cog.listener()
 	async def on_message(self, msg):
-		if not msg.author.bot and msg.content[0] != config.prefix and msg.channel != self.ignored_channel:
-			match = re.search(self.regexExp, msg.content.lower())
-			if match:
-				await self.output_channel.send(content=f"\U000026A0Warning: {msg.author.mention} made a post in {msg.channel.mention}"
-													   f" containing a blacklisted word. \"`{msg.clean_content}`\"")
+		if not msg.author.bot and msg.channel != self.ignored_channel and msg.content != "":
+			if msg.content[0] != config.prefix:
+				match = re.search(self.regexExp, msg.content.lower())
+				if match:
+					await self.output_channel.send(content=f"\U000026A0Warning: {msg.author.mention} made a post in {msg.channel.mention}"
+														   f" containing a blacklisted word. \"`{msg.clean_content}`\"")
 
 
 class AdminCommands(commands.Cog):
